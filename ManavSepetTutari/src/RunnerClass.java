@@ -197,7 +197,10 @@ public class RunnerClass extends Admin{
                             }break;
 
                         case 2:
-                            System.out.println("-------------Müşteri işlemleri-------------"); break;
+                            System.out.println("-------------Müşteri işlemleri-------------");
+                            System.out.println("""
+                            
+                            """);break;
                     }
                 }
             }
