@@ -4,11 +4,6 @@ import java.util.regex.Pattern;
 
 public class RunnerClass extends Admin{
     public static void main(String[] args) {
-        /*
-        Ürün kaydı yapma
-        Sepete ürün ekleme
-        Toplam Tutar hesaplama
-         */
         HashMap<String,Double> urunKayitlari = new LinkedHashMap<>();
         Admin admin = new Admin();
         boolean adminDevamStatus;
