@@ -300,8 +300,8 @@ public class RunnerClass extends Admin{
                                                     musteriIslemeDevamStatus = true;
                                                 } else{
                                                     musteriIslemeDevamStatus = false;
-                                                    continuee = 0;
                                                     System.out.println("Çıkış yapılıyor...");
+                                                    break;
                                                 }
                                             }else{
                                                 musteriIslemeDevamStatus = true;
