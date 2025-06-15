@@ -301,7 +301,6 @@ public class RunnerClass extends Admin{
                                                 } else{
                                                     musteriIslemeDevamStatus = false;
                                                     System.out.println("Çıkış yapılıyor...");
-                                                    break;
                                                 }
                                             }else{
                                                 musteriIslemeDevamStatus = true;
@@ -310,7 +309,7 @@ public class RunnerClass extends Admin{
                                         }
                                     }
                                 }
-                            }while(musteriIslemeDevamStatus = true);
+                            }while(musteriIslemeDevamStatus == true);
                     }
                 }
             }

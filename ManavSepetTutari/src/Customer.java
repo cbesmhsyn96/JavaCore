@@ -5,11 +5,11 @@ public class Customer {
     public static HashMap<String,Integer> sepetUrunListesi = new HashMap<>();
          /*
         ____Müşteri İşlemleri____
-        1. Sepete ürün ekleme tamam
-        2. Sepetten ürün çıkarma
+        1. Sepete ürün ekleme     tamam
+        2. Sepetten ürün çıkarma   ---
         3. Toplam Tutar hesaplama tamam
-        1 ve 3 şuan birleşik. 2 eklemeye benzer toplam = toplam-fiyat*adet
-        ______1 2 ve 3 menü seçenekleri______
+        4. Listeleme              tamam
+        HashMap' in eşsiz key engeli kırıldığı için listelemede ürün sayısını hatalı veriyor. Şuanki durumda.
          */
 
         public static void sepeteUrunEkle(HashMap<String,Double> urunKayitlari,String urunAdi, int urunAdedi) {
