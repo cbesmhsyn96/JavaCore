@@ -17,5 +17,4 @@ public class ProductEntry {
     public void setUrunBirimFiyati(double urunBirimFiyati) {
         this.urunBirimFiyati = urunBirimFiyati;
     }
-
 }

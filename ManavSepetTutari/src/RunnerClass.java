@@ -5,11 +5,16 @@ import java.util.regex.Pattern;
 public class RunnerClass extends Admin{
     public static void main(String[] args) {
         HashMap<String,Double> urunKayitlari = new LinkedHashMap<>();
+        ProductEntry productEntry = new ProductEntry();
         Admin admin = new Admin();
+        Customer customer;
         boolean adminDevamStatus;
         boolean urunEkleDevamStatus;
         boolean urunKayitSilDevamStatus;
         boolean urunKayitGuncelleDevamStatus;
+        boolean alisveriseDevamStatus;
+        boolean sepettenCikarDevamStatus;
+        boolean musteriIslemeDevamStatus;
 
         Scanner scanner = new Scanner(System.in);
         Pattern intPattern = Pattern.compile("\\d+");
@@ -170,12 +175,10 @@ public class RunnerClass extends Admin{
                                                             adminDevamStatus = true;
                                                         } else{
                                                             adminDevamStatus = false;
-                                                            continuee = 0;
                                                             System.out.println("Çıkış yapılıyor...");
                                                         }
                                                     }else{
                                                         adminDevamStatus = true;
-                                                        continuee = 0;
                                                         System.out.println("Hatalı seçim yaptınız ...");
                                                     }
                                                 }
@@ -184,22 +187,135 @@ public class RunnerClass extends Admin{
                                     }while(adminDevamStatus==true);
                                 }else{
                                     System.out.println("Geçersiz login.");
-                                    continuee = 1;
+                                   //continuee = 1;
                                 }
                             }else{
                                 System.out.println("Geçersiz login.");
-                                continuee = 1;
+                               //continuee = 1;
                             }break;
 
                         case 2:
-                            System.out.println("-------------Müşteri işlemleri-------------");
-                            System.out.println("""
-                            
-                            """);break;
+                            do {
+                                musteriIslemeDevamStatus = false;
+                                System.out.println("-------------Müşteri işlemleri-------------");
+                                System.out.print("""
+                                [ 1 ] Sepete ürün ekleme
+                                [ 2 ] Sepetten ürün çıkarma
+                                [ 3 ] Sepetteki ürünleri listele
+                                [ 4 ] Sepet tutarı hesaplama
+                                Seçiniz[1,2,3,4] :""");
+                                String musteriSecim = scanner.nextLine();
+                                if(intPattern.matcher(musteriSecim).matches()){
+                                    int musteriScm = Integer.parseInt(musteriSecim);
+                                    if(musteriScm==1||musteriScm==2||musteriScm==3||musteriScm==4){
+                                        switch (musteriScm){
+                                            case 1 :
+                                                alisveriseDevamStatus = false;
+                                                do{
+                                                    System.out.println("--------Sepete ürün ekleme başlıyor--------");
+                                                    if(!urunKayitlari.isEmpty()){
+                                                        urunKayitlariListele(urunKayitlari);
+                                                        System.out.print("Sepete eklenecek ürün adı :");
+                                                        String urunAdi = scanner.nextLine();
+                                                        System.out.print("Sepete eklenecek ürünün adedi :");
+                                                        String urunAdedi = scanner.nextLine();
+                                                        if(stringPattern.matcher(urunAdi).matches()&&intPattern.matcher(urunAdedi).matches()){
+                                                            if (urunKayitlari.containsKey(urunAdi)){
+                                                                Customer.sepeteUrunEkle(urunKayitlari,urunAdi, Integer.parseInt(urunAdedi));
+                                                                System.out.print("Ürün eklemeye devam edilsin mi[evet[e]/hayır[h]] :");
+                                                                String eklemeyeDevamDurumu = scanner.nextLine();
+                                                                if (stringPattern.matcher(eklemeyeDevamDurumu).matches()){
+                                                                    if (eklemeyeDevamDurumu.equals("e")||eklemeyeDevamDurumu.equals("h")){
+                                                                        if(eklemeyeDevamDurumu.equals("e")){
+                                                                            alisveriseDevamStatus=true;
+                                                                        }else{
+                                                                            System.out.println("Ürün ekleme sonlandırılıyor...");
+                                                                            alisveriseDevamStatus = false;
+                                                                        }
+                                                                    }
+                                                                }else{
+                                                                    System.out.println("Geçersiz giriş yaptınız...!");
+                                                                    alisveriseDevamStatus = false;
+
+                                                                }
+                                                            }
+                                                            //alisveriseDevamStatus = false;
+                                                            else {
+                                                                System.out.println("Sepete eklemek istediğiniz ürün stokta yok...!");
+                                                                System.out.print("Ürün eklemeye devam edilsin mi[evet[e]/hayır[h]] :");
+                                                                String eklemeyeDevamDurumu = scanner.nextLine();
+                                                                if (stringPattern.matcher(eklemeyeDevamDurumu).matches()){
+                                                                    if (eklemeyeDevamDurumu.equals("e")||eklemeyeDevamDurumu.equals("h")){
+                                                                        if(eklemeyeDevamDurumu.equals("e")){
+                                                                            alisveriseDevamStatus=true;
+                                                                        }else{
+                                                                            System.out.println("Ürün ekleme sonlandırılıyor...");
+                                                                            alisveriseDevamStatus = false;
+                                                                        }
+                                                                    }
+                                                                }else{
+                                                                    System.out.println("Geçersiz giriş yaptınız...!");
+                                                                    break;
+                                                                }
+                                                            }
+                                                        }else{
+                                                            System.out.println("Geçersiz değer girdiniz. Ürün bilgilerini tekrar girin...");
+                                                            alisveriseDevamStatus = true;
+                                                        }
+                                                    }else{
+                                                        System.out.println("Listelenecek ürün bulunmamaktadır...");
+                                                        alisveriseDevamStatus = false;
+                                                    }
+                                                }while(alisveriseDevamStatus==true);
+                                                break;
+                                            case 2:
+                                                sepettenCikarDevamStatus = false;
+                                                do {
+
+                                                }while (sepettenCikarDevamStatus);
+                                                break;
+                                            case 3:
+                                                if(!Customer.sepetUrunListesi.isEmpty()){
+                                                    Customer.sepettekiUrunListesiniGetir(urunKayitlari);
+                                                    break;
+                                                }else {
+                                                    System.out.println("Sepette ürün yok.");
+                                                    break;
+                                                }
+                                            case 4:
+                                                double toplamTutar = Customer.sepetToplamı();
+                                                if(toplamTutar != 0.0){
+                                                    System.out.println("Toplam sepet tutarı = "+toplamTutar);
+                                                    break;
+                                                }else{
+                                                    System.out.println("Sepet boş. Lüften sepete ürün ekleyin...!");
+                                                    break;
+                                                }
+                                        }
+                                        System.out.print("Başka bir işlem yapmak ister misiniz[evet/hayır] :");
+                                        String devam = scanner.nextLine();
+                                        if(stringPattern.matcher(devam).matches()){
+                                            if(devam.equals("evet")||devam.equals("hayır")){
+                                                if (devam.equals("evet")){
+                                                    musteriIslemeDevamStatus = true;
+                                                } else{
+                                                    musteriIslemeDevamStatus = false;
+                                                    continuee = 0;
+                                                    System.out.println("Çıkış yapılıyor...");
+                                                }
+                                            }else{
+                                                musteriIslemeDevamStatus = true;
+                                                System.out.println("Hatalı seçim yaptınız ...");
+                                            }
+                                        }
+                                    }
+                                }
+                            }while(musteriIslemeDevamStatus = true);
                     }
                 }
             }
         }while(continuee == 1);
         urunKayitlari.clear();
+        Customer.sepetUrunListesi.clear();
     }
 }

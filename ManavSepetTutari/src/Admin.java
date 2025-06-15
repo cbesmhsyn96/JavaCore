@@ -19,15 +19,16 @@ public class Admin {
     }
 
     public static void urunKayitlariListele(HashMap<String,Double> urunKayitlari){
-        int i = 0;
         if (urunKayitlari.isEmpty()){
-            System.out.println("Kayıtlı ürün olmadığı için listeleme yapılamaz...!");
+            System.out.println("Kayıtlı ürün yok...!");
         }else{
             System.out.println("--------------Ürün Listesi--------------");
+            int i = 0;
             for (Map.Entry urunKaydi : urunKayitlari.entrySet()){
-                System.out.println((i+1)+"--> ["+urunKaydi.getKey()+","+urunKaydi.getValue()+"]");
-                i++;
+                ++i;
+                System.out.println(i+"--> <"+urunKaydi.getKey()+" === "+urunKaydi.getValue()+" TL>");
             }
+            System.out.println(i+" ürün bulunmaktadır.");
         }
 
     }
