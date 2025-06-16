@@ -3,13 +3,14 @@ import java.util.*;
 public class Customer {
     public static List<Double> urunToplamlari = new ArrayList<>();
     public static HashMap<String,Integer> sepetUrunListesi = new HashMap<>();
+    public static List<Integer> urunAdetleri = new ArrayList<>();
          /*
         ____Müşteri İşlemleri____
         1. Sepete ürün ekleme     tamam
         2. Sepetten ürün çıkarma   ---
         3. Toplam Tutar hesaplama tamam
         4. Listeleme              tamam
-        HashMap' in eşsiz key engeli kırıldığı için listelemede ürün sayısını hatalı veriyor. Şuanki durumda.
+        Listelemede ürün sayısındaki bozukluk giderildi.
          */
 
         public static void sepeteUrunEkle(HashMap<String,Double> urunKayitlari,String urunAdi, int urunAdedi) {
@@ -22,6 +23,7 @@ public class Customer {
                     i++;
                 }
             }
+            urunAdetleri.add(urunAdedi);
             sepetUrunListesi.put(key, urunAdedi);
 
             System.out.println(birimFiyat * urunAdedi + " TL sepet tutarı eklendi.");
@@ -36,9 +38,17 @@ public class Customer {
             return sepetToplami;
         }
 
+        public static int urunAdediToplam(){
+            int urunAdediToplami = 0;
+            for (int urunAdedi : urunAdetleri) {
+                urunAdediToplami += urunAdedi;
+            }
+
+            return urunAdediToplami;
+        }
+
         public static void sepettekiUrunListesiniGetir(HashMap<String,Double> urunKayitlari){
                 System.out.println("--------------Sepetteki ürünler--------------");
-                int i = 0;
                 double guncelValue;
                 String guncelK = "";
                 for(Map.Entry sepettekiUrun : sepetUrunListesi.entrySet()){
@@ -47,16 +57,14 @@ public class Customer {
                             if (sepettekiUrun.getKey().toString().contains(currentKey)&&sepettekiUrun.getKey().toString().length()>currentKey.length()){
                                 guncelK = currentKey;
                                 System.out.println("<Ürün adı --> "+sepettekiUrun.getKey()+"> <Ürün adedi = "+sepettekiUrun.getValue()+"> "+"<Ürün birim fiyatı = "+urunKayitlari.get(guncelK)+"TL>");
-                                i++;
                                 break;
                             }
                         }
                         if(urunKayitlari.get(sepettekiUrun.getKey())!=null){
-                            i++;
                             System.out.println("<Ürün adı --> "+sepettekiUrun.getKey()+"> <Ürün adedi = "+sepettekiUrun.getValue()+"> "+"<Ürün birim fiyatı = "+urunKayitlari.get(sepettekiUrun.getKey())+"TL>");
                         }
                 }
 
-                System.out.println("Sepette "+i+" ürün bulunmaktadır.");
+                System.out.println("Sepette "+urunAdediToplam()+" ürün bulunmaktadır.");
         }
 }
