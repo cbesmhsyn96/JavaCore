@@ -30,7 +30,15 @@ public class Customer {
             urunToplamlari.add(birimFiyat * urunAdedi);
         }
 
-        public static double sepetToplamı(){
+        /*
+            Sepetten ürün çıkarma
+            scanner kontrol string(int de kabul eden)
+            toplam tutar - sepet tutarı (for ( : ))
+            sepetteki ürünler hashmapi .remove
+        */
+
+
+        public static double sepetToplami(){
             double sepetToplami = 0.0;
             for (double toplam : urunToplamlari) {
                 sepetToplami += toplam;
@@ -43,7 +51,6 @@ public class Customer {
             for (int urunAdedi : urunAdetleri) {
                 urunAdediToplami += urunAdedi;
             }
-
             return urunAdediToplami;
         }
 
@@ -65,6 +72,12 @@ public class Customer {
                         }
                 }
 
-                System.out.println("Sepette "+urunAdediToplam()+" ürün bulunmaktadır.");
+
+                    System.out.println("Sepet tutarı "+sepetToplami()+" TL' dir.");
+                    System.out.println("Sepette "+urunAdediToplam()+" ürün bulunmaktadır.");
+
+
+
         }
+
 }

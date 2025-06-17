@@ -269,10 +269,7 @@ public class RunnerClass extends Admin{
                                                 }while(alisveriseDevamStatus==true);
                                                 break;
                                             case 2:
-                                                sepettenCikarDevamStatus = false;
-                                                do {
-
-                                                }while (sepettenCikarDevamStatus);
+                                                System.out.println("Çıkarma kodu...");
                                                 break;
                                             case 3:
                                                 if(!Customer.sepetUrunListesi.isEmpty()){
@@ -283,7 +280,7 @@ public class RunnerClass extends Admin{
                                                     break;
                                                 }
                                             case 4:
-                                                double toplamTutar = Customer.sepetToplamı();
+                                                double toplamTutar = Customer.sepetToplami();
                                                 if(toplamTutar != 0.0){
                                                     System.out.println("Toplam sepet tutarı = "+toplamTutar);
                                                     break;
