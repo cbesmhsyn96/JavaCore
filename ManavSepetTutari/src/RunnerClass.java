@@ -17,9 +17,9 @@ public class RunnerClass extends Admin{
         boolean musteriIslemeDevamStatus;
 
         Scanner scanner = new Scanner(System.in);
-        Pattern intPattern = Pattern.compile("\\d+");
         Pattern stringPattern = Pattern.compile("[a-zA-ZçÇğĞıİöÖşŞüÜ]+");
-        Pattern passwordPattern = Pattern.compile("[a-zA-ZçÇğĞıİöÖşŞüÜ\\d]+");
+        Pattern passwordPattern = Pattern.compile("^[a-zA-ZçÇğĞıİöÖşŞüÜ]+\\d*$");
+        Pattern intPattern = Pattern.compile("\\d+");
 
 
         int continuee;
@@ -263,13 +263,60 @@ public class RunnerClass extends Admin{
                                                             alisveriseDevamStatus = true;
                                                         }
                                                     }else{
-                                                        System.out.println("Listelenecek ürün bulunmamaktadır...");
+                                                        System.out.println("Sepete eklenecek ürün bulunmamaktadır...");
                                                         alisveriseDevamStatus = false;
                                                     }
                                                 }while(alisveriseDevamStatus==true);
                                                 break;
                                             case 2:
-                                                System.out.println("Çıkarma kodu...");
+                                                sepettenCikarDevamStatus = false;
+                                                do{
+                                                    Customer.sepettekiUrunListesiniGetir(urunKayitlari);
+                                                    if(!urunKayitlari.isEmpty()){
+                                                        System.out.print("Sepetten çıkarılacak ürün adı :");
+                                                        String cikarilacakUrunAdi = scanner.nextLine();
+                                                        System.out.print("Sepetten çıkarılacak ürünün adedi :");
+                                                        String cikarilacakUrunAdedi = scanner.nextLine();
+                                                        boolean cikarilacakUrunAdiStr = passwordPattern.matcher(cikarilacakUrunAdi).matches();
+                                                        boolean cikarilacakUrunAdediInt = intPattern.matcher(cikarilacakUrunAdedi).matches();
+                                                        if(cikarilacakUrunAdiStr && cikarilacakUrunAdediInt){
+                                                            if(Customer.sepetUrunListesi.containsKey(cikarilacakUrunAdi)){
+                                                                if(Customer.sepetUrunListesi.get(cikarilacakUrunAdi)>=Integer.parseInt(cikarilacakUrunAdedi) ){
+                                                                    Customer.sepettenUrunCikar(urunKayitlari,cikarilacakUrunAdi,Integer.parseInt(cikarilacakUrunAdedi));
+                                                                    System.out.print("Sepetten ürün çıkarmaya devam edilsin mi [evet[e]/hayır[h]]  :");
+                                                                    String cikarmayaDevam = scanner.nextLine();
+                                                                    if(stringPattern.matcher(cikarmayaDevam).matches()){
+                                                                        if (cikarmayaDevam.equals("e")||cikarmayaDevam.equals("h")){
+                                                                            if(cikarmayaDevam.equals("e")){
+                                                                                sepettenCikarDevamStatus = true;
+                                                                            }else{
+                                                                                System.out.println("Ürün çıkarma sonlandırılıyor...");
+                                                                                sepettenCikarDevamStatus = false;
+                                                                            }
+                                                                        }
+                                                                    }else{
+                                                                        System.out.println("Hatalı giriş yaptınız...!");
+                                                                        sepettenCikarDevamStatus = false;
+                                                                    }
+
+                                                                }else{
+                                                                    System.out.println("Sepetteki "+cikarilacakUrunAdi+" ürün adedinden fazla bir değer girdiniz...!");
+                                                                    sepettenCikarDevamStatus = true;
+                                                                }
+                                                            }
+                                                            else{
+                                                                System.out.println(cikarilacakUrunAdi+" adlı ürün sepette yok...");
+                                                                sepettenCikarDevamStatus = true;
+                                                            }
+                                                        }else{
+                                                            System.out.println("Geçersiz değer girdiniz. Ürün bilgilerini tekrar girin...");
+                                                            sepettenCikarDevamStatus = true;
+                                                        }
+                                                    }else{
+                                                        System.out.println("Kayıtlı ürün bulunmamaktadır...");
+                                                        sepettenCikarDevamStatus = false;
+                                                    }
+                                                }while(sepettenCikarDevamStatus == true);
                                                 break;
                                             case 3:
                                                 if(!Customer.sepetUrunListesi.isEmpty()){

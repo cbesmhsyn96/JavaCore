@@ -1,16 +1,19 @@
 import java.util.*;
 
 public class Customer {
-    public static List<Double> urunToplamlari = new ArrayList<>();
-    public static HashMap<String,Integer> sepetUrunListesi = new HashMap<>();
+
+    public static HashMap<String,Integer> sepetUrunListesi = new LinkedHashMap<>();
     public static List<Integer> urunAdetleri = new ArrayList<>();
+
+    public static HashMap<String,Double> urunKayitListesi = new LinkedHashMap<>();
+    public static HashMap<String,Double> urunSepetToplamlari = new LinkedHashMap<>();
+    public static double toplam=0;
          /*
         ____Müşteri İşlemleri____
         1. Sepete ürün ekleme     tamam
-        2. Sepetten ürün çıkarma   ---
+        2. Sepetten ürün çıkarma  tamam
         3. Toplam Tutar hesaplama tamam
         4. Listeleme              tamam
-        Listelemede ürün sayısındaki bozukluk giderildi.
          */
 
         public static void sepeteUrunEkle(HashMap<String,Double> urunKayitlari,String urunAdi, int urunAdedi) {
@@ -27,7 +30,7 @@ public class Customer {
             sepetUrunListesi.put(key, urunAdedi);
 
             System.out.println(birimFiyat * urunAdedi + " TL sepet tutarı eklendi.");
-            urunToplamlari.add(birimFiyat * urunAdedi);
+            urunSepetToplamlari.put(key,birimFiyat * urunAdedi);
         }
 
         /*
@@ -39,11 +42,10 @@ public class Customer {
 
 
         public static double sepetToplami(){
-            double sepetToplami = 0.0;
-            for (double toplam : urunToplamlari) {
-                sepetToplami += toplam;
+            for (double urunSepetTutari : urunSepetToplamlari.values()){
+                toplam = toplam + urunSepetTutari;
             }
-            return sepetToplami;
+            return toplam;
         }
 
         public static int urunAdediToplam(){
@@ -54,30 +56,58 @@ public class Customer {
             return urunAdediToplami;
         }
 
-        public static void sepettekiUrunListesiniGetir(HashMap<String,Double> urunKayitlari){
-                System.out.println("--------------Sepetteki ürünler--------------");
-                double guncelValue;
-                String guncelK = "";
-                for(Map.Entry sepettekiUrun : sepetUrunListesi.entrySet()){
-                        List<String> keyList = urunKayitlari.keySet().stream().toList();
-                        for (String currentKey : keyList){
-                            if (sepettekiUrun.getKey().toString().contains(currentKey)&&sepettekiUrun.getKey().toString().length()>currentKey.length()){
-                                guncelK = currentKey;
-                                System.out.println("<Ürün adı --> "+sepettekiUrun.getKey()+"> <Ürün adedi = "+sepettekiUrun.getValue()+"> "+"<Ürün birim fiyatı = "+urunKayitlari.get(guncelK)+"TL>");
-                                break;
+        public static void sepettenUrunCikar(HashMap<String,Double> urunKayitlari,String sepettenCikacakUrunAdi, int sepettenCikacakUrunSayisi){
+            int guncelAdet;
+            boolean sepetUrunSilStatus = false;
+
+            for (String currentKey : sepetUrunListesi.keySet()){
+                if(sepettenCikacakUrunAdi.equals(currentKey)){
+                    for(String currentUnitProductName : urunKayitlari.keySet()){
+                        if(currentKey.equals(currentUnitProductName)){
+                            if(sepetUrunListesi.get(currentKey)==sepettenCikacakUrunSayisi){
+                                sepetUrunSilStatus = true;
+                            }else{
+                                sepetUrunSilStatus = false;
+                                guncelAdet = sepetUrunListesi.get(currentKey) - sepettenCikacakUrunSayisi;
+                                sepetUrunListesi.replace(currentKey,guncelAdet);
+                                urunSepetToplamlari.replace(currentKey,sepetUrunListesi.get(currentKey)*urunKayitlari.get(currentKey));
+                            }
+                        }else if(currentKey.startsWith(currentUnitProductName)){
+                            if(sepetUrunListesi.get(currentKey)==sepettenCikacakUrunSayisi){
+                                sepetUrunSilStatus = true;
+                            }else{
+                                sepetUrunSilStatus = false;
+                                guncelAdet = sepetUrunListesi.get(currentKey) - sepettenCikacakUrunSayisi;
+                                sepetUrunListesi.replace(currentKey,guncelAdet);
+                                urunSepetToplamlari.replace(currentKey,sepetUrunListesi.get(currentKey)*urunKayitlari.get(currentUnitProductName));
                             }
                         }
-                        if(urunKayitlari.get(sepettekiUrun.getKey())!=null){
-                            System.out.println("<Ürün adı --> "+sepettekiUrun.getKey()+"> <Ürün adedi = "+sepettekiUrun.getValue()+"> "+"<Ürün birim fiyatı = "+urunKayitlari.get(sepettekiUrun.getKey())+"TL>");
-                        }
+                    }
                 }
+            }
 
+            if(sepetUrunSilStatus){
+                urunSepetToplamlari.remove(sepettenCikacakUrunAdi);
+                sepetUrunListesi.remove(sepettenCikacakUrunAdi);
+            }
+        }
 
+        public static void sepettekiUrunListesiniGetir(HashMap<String,Double> urunKayitlari){
+            System.out.println("--------------Sepetteki ürünler--------------");
+            for (String currentKey : sepetUrunListesi.keySet()){
+                for(String currentUnitProductName : urunKayitlari.keySet()){
+                    if(currentKey.equals(currentUnitProductName)){
+                        urunSepetToplamlari.put(currentKey,sepetUrunListesi.get(currentKey)*urunKayitlari.get(currentUnitProductName));
+                        System.out.println("{"+currentKey+","+sepetUrunListesi.get(currentKey)+" adet} Toplam = "+sepetUrunListesi.get(currentKey)*urunKayitlari.get(currentUnitProductName));
+                    }else if(currentKey.startsWith(currentUnitProductName)){
+                        urunSepetToplamlari.put(currentKey,sepetUrunListesi.get(currentKey)*urunKayitlari.get(currentUnitProductName));
+                        System.out.println("{"+currentKey+","+sepetUrunListesi.get(currentKey)+" adet} Toplam = "+sepetUrunListesi.get(currentKey)*urunKayitlari.get(currentUnitProductName));
+                    }
+                }
+            }
                     System.out.println("Sepet tutarı "+sepetToplami()+" TL' dir.");
-                    System.out.println("Sepette "+urunAdediToplam()+" ürün bulunmaktadır.");
-
-
-
+            toplam = 0;
+                    //System.out.println("Sepette "+urunAdediToplam()+" ürün bulunmaktadır.");
         }
 
 }
