@@ -1,11 +1,4 @@
-
-import javax.swing.*;
-import javax.xml.crypto.dom.DOMURIReference;
-import java.security.KeyStore;
-import java.util.*;
-import java.util.regex.Pattern;
-
-public class TryingClass extends Customer{
+public class TryingClass extends Customer {
 
     public static void main(String[] args) {
         //Müşteri - sepetten ürün çıkarma ve sepeteki çıkarılan ürün adedi ile sepetteki ürün listesinin güncellenmesi ve toplam sepet tutarının güncellenmesi
