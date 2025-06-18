@@ -40,11 +40,8 @@ public class Main extends PatternValidations {
                     case "Daire":
                         allCoveredMethod_Circle(false);
                         break;
-
                 }
             }
         }while(true);
-
-
     }
 }
