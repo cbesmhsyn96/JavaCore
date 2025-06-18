@@ -6,7 +6,9 @@ import java.util.Scanner;
 import java.util.Stack;
 import java.util.regex.Pattern;
 
+import static geometricshapes.Circle.allCoveredMethod_Circle;
 import static geometricshapes.Quadrilateral.*;
+import static geometricshapes.Quadrilateral.allCoveredMethod_Quadrilateral;
 import static geometricshapes.Triangle.*;
 import static trigonometry.TrigHelper.sin;
 
@@ -19,12 +21,12 @@ public class Main extends PatternValidations {
         do{
             System.out.print("""
         ----Alanı ve Çevresi Hesaplanacak Geometrik Şekiller----
-        \t[Üçgen]  [Hesaplama için aktif]
-        \t[Dörtgen][Hesaplama için aktif]
-        \t[Daire]  [--------------------]
-        \t[Beşgen] [--------------------]
-        \t[Altıgen][--------------------]
-        \t[Elips]  [--------------------]
+        \t\t[Üçgen]  [Hesaplama için aktif]
+        \t\t[Dörtgen][Hesaplama için aktif]
+        \t\t[Daire]  [Hesaplama için aktif]
+        \t\t[Beşgen] [--------------------]
+        \t\t[Altıgen][--------------------]
+        \t\t[Elips]  [--------------------]
         Hesaplanacak şekil :""");
             selectionShape=scanner.nextLine();
             if(shapesPattern.matcher(selectionShape).matches()){
@@ -34,6 +36,9 @@ public class Main extends PatternValidations {
                         break;
                     case "Dörtgen":
                         allCoveredMethod_Quadrilateral(false);
+                        break;
+                    case "Daire":
+                        allCoveredMethod_Circle(false);
                         break;
 
                 }

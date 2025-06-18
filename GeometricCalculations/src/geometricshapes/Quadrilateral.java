@@ -55,8 +55,6 @@ public class Quadrilateral {
         System.out.println("Çevre = "+perimeter);
     }
 
-
-
     public static void parallelogram(int[] sides){
         double sinValue = 0;
         System.out.print("Paralelkenarın tabanı :");
@@ -86,7 +84,6 @@ public class Quadrilateral {
             System.out.println("Geçersiz değer girdiniz...!");
         }
     }
-
 
     public static void trapezoid(int[] sides){
         System.out.println("[Yamuk alanı için girdiğiniz eşit değerler paralel kabul edilecektir.]");
@@ -230,7 +227,5 @@ public class Quadrilateral {
             }
         }while(status == true);
     }
-
-
 
 }

@@ -1,6 +1,6 @@
 package trigonometry;
 
-public class TrigHelper {
+public class TrigHelper extends ConstantsForTrig{
     public static double sin(double thetaDegrees){
         return Math.sin(toRadians(thetaDegrees));
     }

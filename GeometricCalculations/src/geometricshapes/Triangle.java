@@ -5,6 +5,7 @@ import validations.PatternValidations;
 import java.util.Scanner;
 
 public class Triangle extends PatternValidations{
+
     private static Scanner scanner = new Scanner(System.in);
 
     public static void equiLateral(int a){
@@ -84,6 +85,5 @@ public class Triangle extends PatternValidations{
             }
         }while (status==true);
     }
-
 
 }
