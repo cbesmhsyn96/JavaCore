@@ -29,7 +29,7 @@ public class Triangle extends PatternValidations{
         System.out.println("Çevre = "+perimeter);
     }
 
-    public static void allCoveredMothod_triangle(boolean startingValue){
+    public static void allCoveredMothod_Triangle(boolean startingValue){
         boolean status = startingValue;
         do{
             System.out.print("İlk kenarı girin :");
@@ -78,7 +78,7 @@ public class Triangle extends PatternValidations{
                 }else{
                     System.out.println("\n\n-------------------------------------------------------");
                     System.out.println("Üçgen için alan ve çevre hesaplaması sonlandırılıyor...");
-                    System.out.println("-------------------------------------------------------");
+                    System.out.println("-------------------------------------------------------\n\n");
                     status = false;
                 }
             }
