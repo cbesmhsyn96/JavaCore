@@ -1,14 +1,6 @@
 package geometricshapes;
-
-import trigonometry.ConstantsForTrig;
 import validations.PatternValidations;
-
-import java.util.Arrays;
 import java.util.Scanner;
-import java.util.SimpleTimeZone;
-
-import static validations.PatternValidations.intPattern;
-import static validations.PatternValidations.yesNoPattern;
 
 public class Circle extends PatternValidations {
 
@@ -24,8 +16,7 @@ public class Circle extends PatternValidations {
         System.out.printf("\nÇevre = %.2f\n", perimeter);
     }
 
-
-    public static void allCoveredMethod_Circle(boolean startingValue){
+    public static void allCoveredMethodCircle(boolean startingValue){
         boolean status = startingValue;
         do{
             System.out.println("\nDaire için hesaplama başlatılıyor...");
@@ -40,7 +31,7 @@ public class Circle extends PatternValidations {
                     System.out.println("Negatif değer girilemez...!");
                 }
             }
-            System.out.print("Daire hesaplmasına devam edilsin mi[Evet/Hayır] :");
+            System.out.print("Daire hesaplamasına devam edilsin mi[Evet/Hayır] :");
             String textYesNo = scanner.nextLine();
             if(yesNoPattern.matcher(textYesNo).matches()){
                 if(textYesNo.equals("Evet")){
@@ -56,4 +47,5 @@ public class Circle extends PatternValidations {
             }
         }while(status == true);
     }
+
 }

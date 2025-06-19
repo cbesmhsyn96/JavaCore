@@ -1,16 +1,10 @@
 package geometricshapes;
-
 import validations.PatternValidations;
-
 import java.util.Arrays;
 import java.util.Scanner;
+import static trigonometry.TrigHelper.*;
 
-import static trigonometry.TrigHelper.sin;
-import static validations.PatternValidations.intPattern;
-import static validations.PatternValidations.yesNoPattern;
-
-
-public class Quadrilateral {
+public class Quadrilateral extends PatternValidations{
 
     private static PatternValidations patternValidations;
     private static Scanner scanner = new Scanner(System.in);
@@ -128,7 +122,7 @@ public class Quadrilateral {
         }
     }
 
-    public static void allCoveredMethod_Quadrilateral(boolean startingValue){
+    public static void allCoveredMethodQuadrilateral(boolean startingValue){
         boolean status = startingValue;
         do{
             System.out.print("İç açıların hepsi dik mi [Evet/Hayır]:");
@@ -161,6 +155,8 @@ public class Quadrilateral {
                             }else if(isQuadrilateral){
                                 System.out.println("Dikdörtgen için hesaplama başlatılıyor...");
                                 rectangle(sides[0],sides[2]);
+                            }else{
+                                System.out.println("Girdiğiniz değerler dik açı özelliği ile uyuşmamaktadır...!");
                             }
                         }else{
                             System.out.println("Negatif değerler girdiniz...!");
@@ -211,7 +207,7 @@ public class Quadrilateral {
             }else{
                 System.out.println("Hatalı giriş yaptınız...!");
             }
-            System.out.print("Dörtgen hesaplmasına devam edilsin mi[Evet/Hayır] :");
+            System.out.print("Dörtgen hesaplamasına devam edilsin mi[Evet/Hayır] :");
             String textYesNo = scanner.nextLine();
             if(yesNoPattern.matcher(textYesNo).matches()){
                 if(textYesNo.equals("Evet")){

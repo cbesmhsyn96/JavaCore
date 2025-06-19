@@ -71,7 +71,7 @@ public class Triangle extends PatternValidations{
             }else{
                 System.out.println("Sayı girmediniz...!");
             }
-            System.out.print("Üçgen hesaplmasına devam edilsin mi[Evet/Hayır] :");
+            System.out.print("Üçgen hesaplamasına devam edilsin mi[Evet/Hayır] :");
             String textYesNo = scanner.nextLine();
             if(yesNoPattern.matcher(textYesNo).matches()){
                 if(textYesNo.equals("Evet")){

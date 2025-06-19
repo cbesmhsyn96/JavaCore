@@ -1,30 +1,25 @@
 import validations.PatternValidations;
-
-import java.sql.SQLOutput;
-import java.util.Arrays;
 import java.util.Scanner;
-import java.util.Stack;
-import java.util.regex.Pattern;
-
-import static geometricshapes.Circle.allCoveredMethod_Circle;
-import static geometricshapes.Quadrilateral.*;
-import static geometricshapes.Quadrilateral.allCoveredMethod_Quadrilateral;
+import static geometricshapes.Circle.allCoveredMethodCircle;
+import static geometricshapes.Pentagon.*;
+import static geometricshapes.Quadrilateral.allCoveredMethodQuadrilateral;
 import static geometricshapes.Triangle.*;
-import static trigonometry.TrigHelper.sin;
 
 public class Main extends PatternValidations {
     public static void main(String[] args) {
-
+        /*
+        Beşgen ve altıgen için hesaplama düzgün çokgen formatı üzerinden olacaktır.
+        Elips büyük ve küçük eksenleri x ve y eksenine paralel olduğu varsayılarak hesaplanacaktır.
+         */
         String selectionShape;
         Scanner scanner = new Scanner(System.in);
-
         do{
             System.out.print("""
         ----Alanı ve Çevresi Hesaplanacak Geometrik Şekiller----
         \t\t[Üçgen]  [Hesaplama için aktif]
         \t\t[Dörtgen][Hesaplama için aktif]
         \t\t[Daire]  [Hesaplama için aktif]
-        \t\t[Beşgen] [--------------------]
+        \t\t[Beşgen] [Hesaplama için aktif]
         \t\t[Altıgen][--------------------]
         \t\t[Elips]  [--------------------]
         Hesaplanacak şekil :""");
@@ -35,10 +30,19 @@ public class Main extends PatternValidations {
                         allCoveredMothod_Triangle(false);
                         break;
                     case "Dörtgen":
-                        allCoveredMethod_Quadrilateral(false);
+                        allCoveredMethodQuadrilateral(false);
                         break;
                     case "Daire":
-                        allCoveredMethod_Circle(false);
+                        allCoveredMethodCircle(false);
+                        break;
+                    case "Beşgen":
+                        allCoveredMethodRegularPentagon(false);
+                        break;
+                    case "Altıgen":
+                        System.out.println("Altıgen alan ve çevre hesabı buraya.");
+                        break;
+                    case "Elips":
+                        System.out.println("Altıgen alan ve çevre hesabı buraya.");
                         break;
                 }
             }
