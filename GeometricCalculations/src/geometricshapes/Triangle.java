@@ -30,7 +30,7 @@ public class Triangle extends PatternValidations{
         System.out.println("Çevre = "+perimeter);
     }
 
-    public static void allCoveredMothod_Triangle(boolean startingValue){
+    public static void allCoveredMothodTriangle(boolean startingValue){
         boolean status = startingValue;
         do{
             System.out.print("İlk kenarı girin :");
