@@ -7,16 +7,18 @@ import java.util.regex.Pattern;
 import static calculations.Arithmetic.*;
 import static calculations.ConversionsAndBasicInfo.conversionsAndBasicInfoCalcs;
 import static calculations.ExponentialAndRoot.*;
+import static calculations.NumberTheoryAndAdvancedMath.*;
 import static calculations.Trigonometric.*;
 
 /*
 Pattern doğrulamaları tek class ta toplanacak.
  */
-public class RunnerClass {
+public class RunnerClass{
     public static void main(String[] args) {
         //arithmeticCalcs();
         //exponentialAndRootCalcs();
         //trigonometricCalcs();
         //conversionsAndBasicInfoCalcs();
+
     }
 }

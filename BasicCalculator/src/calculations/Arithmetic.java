@@ -48,7 +48,7 @@ public class Arithmetic {
         return getNumber1() / getNumber2();
     }
 
-    private static int mod(int a, int b) {
+    protected static int mod(int a, int b) {
         int c = a/b;
         int modValue = a - b * c;
         return modValue;
