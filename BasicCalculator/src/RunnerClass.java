@@ -5,6 +5,7 @@ import java.util.Scanner;
 import java.util.regex.Pattern;
 
 import static calculations.Arithmetic.*;
+import static calculations.ConversionsAndBasicInfo.conversionsAndBasicInfoCalcs;
 import static calculations.ExponentialAndRoot.*;
 import static calculations.Trigonometric.*;
 
@@ -16,6 +17,6 @@ public class RunnerClass {
         //arithmeticCalcs();
         //exponentialAndRootCalcs();
         //trigonometricCalcs();
-
+        //conversionsAndBasicInfoCalcs();
     }
 }

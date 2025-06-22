@@ -8,19 +8,19 @@ public class Arithmetic {
     private static double number1;
     private static double number2;
 
-    public static double getNumber1() {
+    private static double getNumber1() {
         return number1;
     }
 
-    public static void setNumber1(double number1) {
+    private static void setNumber1(double number1) {
         Arithmetic.number1 = number1;
     }
 
-    public static double getNumber2() {
+    private static double getNumber2() {
         return number2;
     }
 
-    public static void setNumber2(double number2) {
+    private static void setNumber2(double number2) {
         Arithmetic.number2 = number2;
     }
 
