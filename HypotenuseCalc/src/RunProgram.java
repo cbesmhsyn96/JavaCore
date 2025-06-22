@@ -30,6 +30,5 @@ public class RunProgram {
             }
         }while (true);
         System.out.println("Hipotenüs = "+(int)calculation.calcHypotenuse(quadrilateral.getShorterLeg(), quadrilateral.getLongerLeg()));
-
     }
 }
