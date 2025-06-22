@@ -14,7 +14,6 @@ public class RunProgram {
         int choice;
         Pattern patternStrTr = Pattern.compile("[a-zA-ZçÇğĞıİöÖşŞüÜ ]+");
         Pattern patternNumber = Pattern.compile("\\d+");
-
         do {
             System.out.println("....Program Starting....");
             product = new Product(0.18);
@@ -52,7 +51,6 @@ public class RunProgram {
             Choose [1, 2 or 3]: """);
             choice = scanner.nextInt();
             scanner.nextLine();
-
             switch (choice) {
                 case 1:
                     System.out.println("Unit price of " + product.getNameProduct() + " including KDV = " + product.calculatePriceIncludeKDV());
@@ -73,7 +71,6 @@ public class RunProgram {
                     System.out.println("Terminating the process...");
                     break;
             }
-
             String continueProcess;
             System.out.print("Would you like to start a new process [yes/no]: ");
             continueProcess = scanner.nextLine();
