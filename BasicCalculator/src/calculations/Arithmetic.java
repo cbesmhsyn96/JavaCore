@@ -1,12 +1,9 @@
 package calculations;
 
-import java.security.PublicKey;
-import java.util.Scanner;
-import java.util.regex.Pattern;
+import fields.Fields;
 
-public class Arithmetic {
-    private static double number1;
-    private static double number2;
+
+public class Arithmetic extends Fields {
 
     private static double getNumber1() {
         return number1;
@@ -61,14 +58,14 @@ public class Arithmetic {
     public static void arithmeticCalcs(){
         System.out.println("Aritmetik Hesaplamalar");
         System.out.print("İlk sayıyı gir :");
-        String sayi1 = new Scanner(System.in).nextLine();
+        String sayi1 = scanner.nextLine();
         System.out.print("İlk sayıyı gir :");
-        String sayi2 = new Scanner(System.in).nextLine();
+        String sayi2 = scanner.nextLine();
         System.out.print("Mutlak değeri alınacak sayıyı gir(negatif) :");
-        String sayi3 = new Scanner(System.in).nextLine();
-        if(Pattern.compile("\\d+").matcher(sayi1).matches()&&
-                Pattern.compile("\\d+").matcher(sayi2).matches()&&
-                Pattern.compile("-\\d+").matcher(sayi3).matches()){
+        String sayi3 = scanner.nextLine();
+        if(patternInt.matcher(sayi1).matches()&&
+                patternInt.matcher(sayi2).matches()&&
+                patternNegativeInt.matcher(sayi3).matches()){
             int sayi1Int = Integer.parseInt(sayi1);
             int sayi2Int = Integer.parseInt(sayi2);
             int sayi3Int = Integer.parseInt(sayi3);

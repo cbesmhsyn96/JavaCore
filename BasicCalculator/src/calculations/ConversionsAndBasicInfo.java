@@ -1,20 +1,11 @@
 package calculations;
 
-import java.util.Scanner;
-import java.util.regex.Pattern;
+import fields.Fields;
 
-public class ConversionsAndBasicInfo {
-    /*
-    System.out.println(toBinaryString(10)); // Çıktı: 1010
-    System.out.println(toHexString(255)); // Çıktı: ff
-    System.out.println(toOctalString(64)); // Çıktı: 100
-    System.out.println(parseIntBinaryToDec("1010")); // Çıktı: 10
-    System.out.println(parseIntHexToDec("ff")); // Çıktı: 255
-    System.out.println(parseIntOctalToDec("100")); // Çıktı: 64
-    System.out.println(getSignumNumber(-123.45)); // Çıktı: -1.0
-    System.out.println(getSignumNumber(0));       // Çıktı: 0.0
-    System.out.println(getSignumNumber(42));      // Çıktı: 1.0
-     */
+import java.util.Scanner;
+
+public class ConversionsAndBasicInfo extends Fields {
+    
     private static double floor(double sayi) {
         return Math.floor(sayi);
     }
@@ -65,10 +56,10 @@ public class ConversionsAndBasicInfo {
         String sayi3 = new Scanner(System.in).nextLine();
         System.out.print("Dördüncü sayıyı gir(String hexadecimal sayı şeklinde) :");
         String sayi4 = new Scanner(System.in).nextLine();
-        if(Pattern.compile("\\d+").matcher(sayi1).matches()&&
-           Pattern.compile("-?\\d+\\.\\d+").matcher(sayi2).matches()&&
-           Pattern.compile("[01]+").matcher(sayi3).matches()&&
-           Pattern.compile("[0-9a-fA-F]+").matcher(sayi4).matches()){
+        if(patternInt.matcher(sayi1).matches()&&
+           patternDouble.matcher(sayi2).matches()&&
+           patternBinary.matcher(sayi3).matches()&&
+           patternHexFormat.matcher(sayi4).matches()){
             /*System.out.println("floor("+sayi2+") = " + floor(Double.parseDouble(sayi2)));
             System.out.println("round("+sayi2+") = " + round(Double.parseDouble(sayi2)));
             System.out.println("ceil("+sayi2+") = " + ceil(Double.parseDouble(sayi2)));

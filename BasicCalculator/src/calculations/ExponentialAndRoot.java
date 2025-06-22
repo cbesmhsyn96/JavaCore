@@ -1,12 +1,10 @@
 package calculations;
 
-import java.util.Scanner;
-import java.util.SortedMap;
-import java.util.regex.Pattern;
+import fields.Fields;
 
-public class ExponentialAndRoot {
-    private static int sayi1;
-    private static int sayi2;
+import java.util.Scanner;
+
+public class ExponentialAndRoot extends Fields {
 
     public static double getSayi1() {
         return sayi1;
@@ -62,8 +60,8 @@ public class ExponentialAndRoot {
         String sayi1Str = new Scanner(System.in).nextLine();
         System.out.print("İkinci sayıyı gir :");
         String sayi2Str = new Scanner(System.in).nextLine();
-        if(Pattern.compile("\\d+").matcher(sayi1Str).matches()&&
-                Pattern.compile("\\d+").matcher(sayi2Str).matches()){
+        if(patternInt.matcher(sayi1Str).matches()&&
+                patternInt.matcher(sayi2Str).matches()){
             int sayi1Int = Integer.parseInt(sayi1Str);
             int sayi2Int = Integer.parseInt(sayi2Str);
             System.out.printf("%15s %15s %15s %15s %9s %17s%n","ÜsAl","KökAl","N.DerecedenKök","Exponansiyel","Log","Log10");

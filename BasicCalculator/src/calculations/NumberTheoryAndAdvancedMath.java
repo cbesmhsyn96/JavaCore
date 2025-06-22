@@ -1,18 +1,11 @@
 package calculations;
-
-import java.util.ArrayList;
+import fields.Fields;
 import java.util.List;
 import java.util.Scanner;
-import java.util.regex.Pattern;
 
 import static calculations.Arithmetic.mod;
 
-public class NumberTheoryAndAdvancedMath {
-    private static int sayi;
-    private static int sayi2;
-    private static List<Integer> divisorsNumber1 = new ArrayList<>();
-    private static List<Integer> divisorsNumber2 = new ArrayList<>();
-    private static List<Integer> commonDivisors = new ArrayList<>();
+public class NumberTheoryAndAdvancedMath extends Fields {
 
     public static List<Integer> getDivisorsNumber1() {
         return divisorsNumber1;
@@ -64,6 +57,7 @@ public class NumberTheoryAndAdvancedMath {
     }
 
     private static void primeNumberCheck(int maxNumberAddOne){
+        System.out.println(maxNumberAddOne+" sayısına kadar olan sayıların asallık durumları");
         int a;
         int sayi;
         for (sayi = 2; sayi < maxNumberAddOne; sayi++) {
@@ -89,9 +83,9 @@ public class NumberTheoryAndAdvancedMath {
 
     private static void checkIfEven(int sayi) {
         if (mod(sayi, 2) == 0) {
-            System.out.println("Sayı çift");
+            System.out.println(sayi+" sayısı çift");
         } else {
-            System.out.println("Sayı tek");
+            System.out.println(sayi+" sayısı tek");
         }
     }
 
@@ -169,31 +163,35 @@ public class NumberTheoryAndAdvancedMath {
     }
 
     public static void numberTheoryAndAdvancedMathCalcs(){
-
         System.out.print("Sayi girin :");
         String sayi1 = new Scanner(System.in).nextLine();
         System.out.print("Sayi girin :");
         String sayi2 = new Scanner(System.in).nextLine();
 
-        if(Pattern.compile("\\d+").matcher(sayi1).matches()&&
-           Pattern.compile("\\d+").matcher(sayi2).matches()){
+        if(patternInt.matcher(sayi1).matches()&&
+           patternInt.matcher(sayi2).matches()){
             int sayi1Int = Integer.parseInt(sayi1);
             int sayi2Int = Integer.parseInt(sayi2);
             setSayi1(sayi1Int);
             setSayi2(sayi2Int);
             setDivisorsNumber1(divisorsNumber1);
             setDivisorsNumber2(divisorsNumber2);
-
             calculateDivisors(getSayi1(),getDivisorsNumber1());
             calculateDivisors(getSayi2(),getDivisorsNumber2());
             getDivisors(getSayi1(),getDivisorsNumber1());
             getDivisors(getSayi2(),getDivisorsNumber2());
             setCommonDivisors(commonDivisors);
             findCommonDivisors(getDivisorsNumber1(),getDivisorsNumber2(), getCommonDivisors());
-
             System.out.println("\nOrtak bölenler = "+getCommonDivisors(getCommonDivisors()));
             System.out.println("Ortak bölenlerin en küçüğü(LCM) = "+findSmallestCommonDivisor(getCommonDivisors()));
             System.out.println("Ortak bölenlerin en büyüğü(GCD) = "+findGreatestCommonDivisor(getCommonDivisors()));
+            System.out.println("Ortak bölenlerin ortalaması = "+averageCalc(getCommonDivisors()));
+            System.out.println("EBOB(GCD) ve OKEK(LCM) "+findMinMax(getCommonDivisors()));
+            System.out.println(8+"! = "+factorialCalc(8));
+            System.out.println();
+            primeNumberCheck(sayi1Int);
+            System.out.println();
+            checkIfEven(sayi2Int);
         }
 
 

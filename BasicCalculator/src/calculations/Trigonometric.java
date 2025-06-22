@@ -1,14 +1,9 @@
 package calculations;
-
-import java.lang.reflect.MalformedParameterizedTypeException;
+import fields.Fields;
 import java.util.Scanner;
-import java.util.regex.Pattern;
 
-public class Trigonometric {
-    /*
-    sin(x), cos(x), tan(x) (Math.sin(), Math.cos(), Math.tan())
-    arcsin, arccos, arctan (Math.asin(), Math.acos(), Math.atan())
-     */
+public class Trigonometric extends Fields {
+    
     public static double sin(double thetaDegrees){
         return Math.sin(toRadians(thetaDegrees));
     }
@@ -46,13 +41,13 @@ public class Trigonometric {
     }
 
     public static void trigonometricCalcs(){
-        System.out.println("Trigonometri Hesaplamalar");
+        System.out.println("Trigonometrik Hesaplamalar");
         System.out.print("İlk sayıyı gir :");
         String sayi1 = new Scanner(System.in).nextLine();
         System.out.print("İkinci sayıyı gir :");
         String sayi2 = new Scanner(System.in).nextLine();
-        if(Pattern.compile("\\d+").matcher(sayi1).matches()&&
-                Pattern.compile("^\\d+(\\.\\d+)?$").matcher(sayi2).matches()){
+        if(patternInt.matcher(sayi1).matches()&&
+                patternPositiveIntAndDouble.matcher(sayi2).matches()){
             double sayi1Int = Integer.parseInt(sayi1);
             double sayi2IDouble = Integer.parseInt(sayi2);
             System.out.printf("%10s %10s %10s %10s %10s %10s%n","SIN","COS","TAN","COT","ATAN","ACOT");

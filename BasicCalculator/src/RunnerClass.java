@@ -1,8 +1,4 @@
-import calculations.*;
-
-import java.sql.SQLOutput;
-import java.util.Scanner;
-import java.util.regex.Pattern;
+import fields.Fields;
 
 import static calculations.Arithmetic.*;
 import static calculations.ConversionsAndBasicInfo.conversionsAndBasicInfoCalcs;
@@ -11,14 +7,52 @@ import static calculations.NumberTheoryAndAdvancedMath.*;
 import static calculations.Trigonometric.*;
 
 /*
-Pattern doğrulamaları tek class ta toplanacak.
+protected ile
+Sabitler
+   |
+Patternler extend Sabitler
+   |
+Fieldlar extend Patternler
+   |
+Sınıflar extend Fieldlar
  */
-public class RunnerClass{
+public class RunnerClass extends Fields {
     public static void main(String[] args) {
-        //arithmeticCalcs();
-        //exponentialAndRootCalcs();
-        //trigonometricCalcs();
-        //conversionsAndBasicInfoCalcs();
-        //numberTheoryAndAdvancedMathCalcs(); içinde şuan tüm metotlar yok. Sınıftaki tüm metotlar metodun içinde çağırılacak.
+        do {
+            continueStatus = false;
+            System.out.print("""
+            { 1 } Aritmetik Hesaplamalar
+            { 2 } Üs ve Kök Hesaplamaları
+            { 3 } Trigonometrik Hesaplamalar
+            { 4 } Dönüştürmeler ve Temel Bilgilerle İlgili Hesaplamalar
+            { 5 } Sayı Teorisi ve İleri Matematik Hesaplamaları
+            Seçiniz :""");
+            String selection = scanner.nextLine();
+            if(patternInt.matcher(selection).matches()){
+                int selectionInt = Integer.parseInt(selection);
+                if(selectionInt == 1){
+                    arithmeticCalcs();
+                } else if (selectionInt == 2) {
+                    exponentialAndRootCalcs();
+                } else if (selectionInt == 3) {
+                    trigonometricCalcs();
+                } else if (selectionInt == 4) {
+                    conversionsAndBasicInfoCalcs();
+                } else if (selectionInt == 5) {
+                    numberTheoryAndAdvancedMathCalcs();
+                } else {
+                    System.out.println("Geçerli değer girmediniz...!");
+                }
+            }
+            System.out.print("Temel hesap makinesi devam durumu [evet|hayır] :");
+            selectionContinue = scanner.nextLine();
+            if(selectionContinue.equals("evet")||selectionContinue.equals("hayır")){
+                if(selectionContinue.equals("evet")){
+                    continueStatus = true;
+                }else{
+                    continueStatus = false;
+                }
+            }
+        }while (continueStatus);
     }
 }
