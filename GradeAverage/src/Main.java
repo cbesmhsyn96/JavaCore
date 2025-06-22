@@ -73,7 +73,6 @@ public class Main {
                 break;
             }
         } while (true);
-
         System.out.println("------------------------Mathematics Grades--------------------------");
         for (String key : mathNoteAvgHashMap.keySet()) {
             if (mathNoteAvgHashMap.get(key) >= 50) {
@@ -82,7 +81,6 @@ public class Main {
                 System.out.println("The student with ID " + key + " has a Mathematics average = " + mathNoteAvgHashMap.get(key) + " [Failed]");
             }
         }
-
         System.out.println("--------------------------Physics Grades---------------------------");
         for (String key : phisicsNoteAvgHashMap.keySet()) {
             if (phisicsNoteAvgHashMap.get(key) >= 50) {
