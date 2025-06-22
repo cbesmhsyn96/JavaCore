@@ -19,6 +19,6 @@ public class RunnerClass{
         //exponentialAndRootCalcs();
         //trigonometricCalcs();
         //conversionsAndBasicInfoCalcs();
-
+        //numberTheoryAndAdvancedMathCalcs(); içinde şuan tüm metotlar yok. Sınıftaki tüm metotlar metodun içinde çağırılacak.
     }
 }
