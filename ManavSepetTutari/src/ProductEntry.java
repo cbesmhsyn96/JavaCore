@@ -1,4 +1,5 @@
 public class ProductEntry {
+
     private String urunAdi;
     private double urunBirimFiyati;
 
