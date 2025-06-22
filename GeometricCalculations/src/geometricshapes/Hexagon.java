@@ -1,10 +1,8 @@
 package geometricshapes;
 
 import validations.PatternValidations;
-
 import java.util.Scanner;
 
-import static trigonometry.ConstantsForTrig.*;
 import static trigonometry.TrigHelper.cotRadians;
 
 public class Hexagon extends PatternValidations {
