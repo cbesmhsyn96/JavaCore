@@ -1,0 +1,7 @@
+### IntelliJ IDEA ###
+out/
+!src/
+!**/src/main/**/out/
+!**/src/test/**/out/
+**/.idea
+src/environment
