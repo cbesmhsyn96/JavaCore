@@ -1,7 +1,6 @@
-### IntelliJ IDEA ###
-out/
-!src/
-!**/src/main/**/out/
-!**/src/test/**/out/
-**/.idea
-src/environment
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+.idea/
+src/main/java/environment

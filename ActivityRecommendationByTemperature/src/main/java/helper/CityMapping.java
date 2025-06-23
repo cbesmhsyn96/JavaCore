@@ -1,10 +1,9 @@
-import java.util.*;
-import java.util.zip.ZipEntry;
+package helper;
 
-public class TryingTwo {
-    protected static HashMap<String,String> keyValueGuncelSehirler = new HashMap<>();
-    protected static void setKeyValueGuncelSehirler(){
-        List<String> turkceHarfIcerenSehirler = new ArrayList<>();
+import defines.Defines;
+
+public class CityMapping extends Defines {
+    protected static void setKeyValueGuncelSehirler() {
         turkceHarfIcerenSehirler.add("Adıyaman");
         turkceHarfIcerenSehirler.add("Afyonkarahisar");
         turkceHarfIcerenSehirler.add("Aydın");
@@ -49,15 +48,15 @@ public class TryingTwo {
             int index = 0;
             char[] letters;
             letters = turkceHarfIcerenSehirler.get(i).toCharArray();
-            while (index<letters.length){
-                if(letters[index] == 'ç' || letters[index] == 'Ç' ||
+            while (index < letters.length) {
+                if (letters[index] == 'ç' || letters[index] == 'Ç' ||
                         letters[index] == 'ğ' || letters[index] == 'Ğ' ||
                         letters[index] == 'ı' ||
                         letters[index] == 'i' || letters[index] == 'İ' ||
                         letters[index] == 'ö' || letters[index] == 'Ö' ||
                         letters[index] == 'ş' || letters[index] == 'Ş' ||
                         letters[index] == 'ü' || letters[index] == 'Ü' ||
-                        letters[index] == 'â'){
+                        letters[index] == 'â') {
                     if (letters[index] == 'ç' || letters[index] == 'Ç') {
                         letters[index] = 'c';
                     } else if (letters[index] == 'ğ' || letters[index] == 'Ğ') {
@@ -78,11 +77,7 @@ public class TryingTwo {
                 }
                 index++;
             }
-            keyValueGuncelSehirler.put(turkceHarfIcerenSehirler.get(i),new String(letters).toLowerCase());
+            keyValueGuncelSehirler.put(turkceHarfIcerenSehirler.get(i), new String(letters).toLowerCase());
         }
-    }
-    public static void main(String[] args) {
-
-        
     }
 }
