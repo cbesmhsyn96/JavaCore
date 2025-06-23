@@ -28,7 +28,7 @@ public class Main {
                 phisicsNotes = new PhisicsNotes();
                 student.setStudentID();
                 System.out.print("""
-                ------------------MENU------------------
+                -----------------MENU------------------
                 1-) Enter Mathematics grades
                 2-) Enter Physics grades
                 3-) Enter both Mathematics and Physics grades
