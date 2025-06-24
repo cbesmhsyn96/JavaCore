@@ -1,7 +1,5 @@
 package helper;
 
-import environment.ConstansVariables;
-
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;

@@ -1,20 +1,10 @@
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.ArrayNode;
-import helper.CityMapping;
 import helper.JsonProcessing;
 
-import javax.imageio.plugins.tiff.ExifParentTIFFTagSet;
 import java.io.IOException;
 import java.net.URISyntaxException;
-import java.net.http.HttpResponse;
-import java.util.ArrayList;
-import java.util.Formattable;
-import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
-import static helper.APIUsingMethods.getResponse;
 
 public class RunnerClass extends JsonProcessing {
     public static void main(String[] args) throws URISyntaxException, IOException, InterruptedException {
@@ -37,6 +27,5 @@ public class RunnerClass extends JsonProcessing {
                 }
             }
         }while (continueeStatus);
-
     }
 }
