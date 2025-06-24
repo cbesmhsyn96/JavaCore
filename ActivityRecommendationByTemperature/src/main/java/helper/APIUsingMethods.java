@@ -10,7 +10,7 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.time.Duration;
 
-public class APIUsingMethods extends ConstansVariables {
+    public class APIUsingMethods extends CityMapping {
     private static HttpClient client = HttpClient.newBuilder().connectTimeout(Duration.ofSeconds(10)).build();
 
     private static HttpRequest setRequest(String cityName) throws URISyntaxException {
