@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="439d2c44-3bea-4ca8-9ff7-515903a481eb" name="Changes" comment="-- refactored to maven --">
-      <change afterPath="$PROJECT_DIR$/src/main/java/helper/JsonProcessing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RunnerClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RunnerClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Trying.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Trying.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helper/APIUsingMethods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helper/APIUsingMethods.java" afterDir="false" />
-    </list>
+    <list default="true" id="439d2c44-3bea-4ca8-9ff7-515903a481eb" name="Changes" comment="-- project completed --" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -105,11 +98,28 @@
       <option name="project" value="LOCAL" />
       <updated>1750681121421</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="-- project completed --">
+      <option name="closed" value="true" />
+      <created>1750753273021</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1750753273021</updated>
+    </task>
+    <task id="LOCAL-00003" summary="-- project completed --">
+      <option name="closed" value="true" />
+      <created>1750753387641</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1750753387641</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="-- refactored to maven --" />
-    <option name="LAST_COMMIT_MESSAGE" value="-- refactored to maven --" />
+    <MESSAGE value="-- project completed --" />
+    <option name="LAST_COMMIT_MESSAGE" value="-- project completed --" />
   </component>
 </project>
