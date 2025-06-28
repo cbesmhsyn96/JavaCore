@@ -29,6 +29,8 @@ public class JsonProcessing extends APIUsingMethods {
                 }else{
                     System.out.println("Bugünkü beklenen sıcaklıktan dolayı eğer dışarı çıkacaksanız bir hırka alıp öyle çıkmalısınız.");
                 }
+            }else{
+                System.out.println("API'den dönen yanıtın durum kodu :"+getResponse(cityInputValue).statusCode());
             }
         }
     }

@@ -4,50 +4,91 @@ import defines.Defines;
 
 public class CityMapping extends Defines {
     protected static void setKeyValueGuncelSehirler() {
-        turkceHarfIcerenSehirler.add("Adıyaman");
-        turkceHarfIcerenSehirler.add("Afyonkarahisar");
-        turkceHarfIcerenSehirler.add("Aydın");
-        turkceHarfIcerenSehirler.add("Balıkesir");
-        turkceHarfIcerenSehirler.add("Bilecik");
-        turkceHarfIcerenSehirler.add("Çanakkale");
-        turkceHarfIcerenSehirler.add("Çankırı");
-        turkceHarfIcerenSehirler.add("Çorum");
-        turkceHarfIcerenSehirler.add("Diyarbakır");
-        turkceHarfIcerenSehirler.add("Elazığ");
-        turkceHarfIcerenSehirler.add("Eskişehir");
-        turkceHarfIcerenSehirler.add("Gümüşhane");
-        turkceHarfIcerenSehirler.add("Hakkâri");
-        turkceHarfIcerenSehirler.add("Iğdır");
-        turkceHarfIcerenSehirler.add("Isparta");
-        turkceHarfIcerenSehirler.add("İstanbul");
-        turkceHarfIcerenSehirler.add("İzmir");
-        turkceHarfIcerenSehirler.add("Kahramanmaraş");
-        turkceHarfIcerenSehirler.add("Karabük");
-        turkceHarfIcerenSehirler.add("Kırıkkale");
-        turkceHarfIcerenSehirler.add("Kırklareli");
-        turkceHarfIcerenSehirler.add("Kırşehir");
-        turkceHarfIcerenSehirler.add("Kocaeli");
-        turkceHarfIcerenSehirler.add("Kütahya");
-        turkceHarfIcerenSehirler.add("Malatya");
-        turkceHarfIcerenSehirler.add("Mardin");
-        turkceHarfIcerenSehirler.add("Muğla");
-        turkceHarfIcerenSehirler.add("Muş");
-        turkceHarfIcerenSehirler.add("Nevşehir");
-        turkceHarfIcerenSehirler.add("Niğde");
-        turkceHarfIcerenSehirler.add("Sakarya");
-        turkceHarfIcerenSehirler.add("Siirt");
-        turkceHarfIcerenSehirler.add("Şanlıurfa");
-        turkceHarfIcerenSehirler.add("Şırnak");
-        turkceHarfIcerenSehirler.add("Tekirdağ");
-        turkceHarfIcerenSehirler.add("Tunceli");
-        turkceHarfIcerenSehirler.add("Uşak");
-        turkceHarfIcerenSehirler.add("Düzce");
-        turkceHarfIcerenSehirler.add("Bartın");
-        turkceHarfIcerenSehirler.add("Bayburt");
-        for (int i = 0; i < turkceHarfIcerenSehirler.size(); i++) {
+        tumSehirler.add("Adana");
+        tumSehirler.add("Adıyaman");
+        tumSehirler.add("Afyonkarahisar");
+        tumSehirler.add("Ağrı");
+        tumSehirler.add("Aksaray");
+        tumSehirler.add("Amasya");
+        tumSehirler.add("Ankara");
+        tumSehirler.add("Antalya");
+        tumSehirler.add("Ardahan");
+        tumSehirler.add("Artvin");
+        tumSehirler.add("Aydın");
+        tumSehirler.add("Balıkesir");
+        tumSehirler.add("Bartın");
+        tumSehirler.add("Batman");
+        tumSehirler.add("Bayburt");
+        tumSehirler.add("Bilecik");
+        tumSehirler.add("Bingöl");
+        tumSehirler.add("Bitlis");
+        tumSehirler.add("Bolu");
+        tumSehirler.add("Burdur");
+        tumSehirler.add("Bursa");
+        tumSehirler.add("Çanakkale");
+        tumSehirler.add("Çankırı");
+        tumSehirler.add("Çorum");
+        tumSehirler.add("Denizli");
+        tumSehirler.add("Diyarbakır");
+        tumSehirler.add("Düzce");
+        tumSehirler.add("Edirne");
+        tumSehirler.add("Elazığ");
+        tumSehirler.add("Erzincan");
+        tumSehirler.add("Erzurum");
+        tumSehirler.add("Eskişehir");
+        tumSehirler.add("Gaziantep");
+        tumSehirler.add("Giresun");
+        tumSehirler.add("Gümüşhane");
+        tumSehirler.add("Hakkâri");
+        tumSehirler.add("Hatay");
+        tumSehirler.add("Iğdır");
+        tumSehirler.add("Isparta");
+        tumSehirler.add("İstanbul");
+        tumSehirler.add("İzmir");
+        tumSehirler.add("Kahramanmaraş");
+        tumSehirler.add("Karabük");
+        tumSehirler.add("Karaman");
+        tumSehirler.add("Kars");
+        tumSehirler.add("Kastamonu");
+        tumSehirler.add("Kayseri");
+        tumSehirler.add("Kilis");
+        tumSehirler.add("Kırıkkale");
+        tumSehirler.add("Kırklareli");
+        tumSehirler.add("Kırşehir");
+        tumSehirler.add("Kocaeli");
+        tumSehirler.add("Konya");
+        tumSehirler.add("Kütahya");
+        tumSehirler.add("Malatya");
+        tumSehirler.add("Manisa");
+        tumSehirler.add("Mardin");
+        tumSehirler.add("Mersin");
+        tumSehirler.add("Muğla");
+        tumSehirler.add("Muş");
+        tumSehirler.add("Nevşehir");
+        tumSehirler.add("Niğde");
+        tumSehirler.add("Ordu");
+        tumSehirler.add("Osmaniye");
+        tumSehirler.add("Rize");
+        tumSehirler.add("Sakarya");
+        tumSehirler.add("Samsun");
+        tumSehirler.add("Siirt");
+        tumSehirler.add("Sinop");
+        tumSehirler.add("Sivas");
+        tumSehirler.add("Şanlıurfa");
+        tumSehirler.add("Şırnak");
+        tumSehirler.add("Tekirdağ");
+        tumSehirler.add("Tokat");
+        tumSehirler.add("Trabzon");
+        tumSehirler.add("Tunceli");
+        tumSehirler.add("Uşak");
+        tumSehirler.add("Van");
+        tumSehirler.add("Yalova");
+        tumSehirler.add("Yozgat");
+        tumSehirler.add("Zonguldak");
+        for (int i = 0; i < tumSehirler.size(); i++) {
             int index = 0;
             char[] letters;
-            letters = turkceHarfIcerenSehirler.get(i).toCharArray();
+            letters = tumSehirler.get(i).toCharArray();
             while (index < letters.length) {
                 if (letters[index] == 'ç' || letters[index] == 'Ç' ||
                         letters[index] == 'ğ' || letters[index] == 'Ğ' ||
@@ -77,7 +118,7 @@ public class CityMapping extends Defines {
                 }
                 index++;
             }
-            keyValueGuncelSehirler.put(turkceHarfIcerenSehirler.get(i), new String(letters).toLowerCase());
+            keyValueGuncelSehirler.put(tumSehirler.get(i), new String(letters).toLowerCase());
         }
     }
 }
