@@ -1,14 +1,8 @@
-import java.time.LocalDate;
-import java.time.Month;
-import java.time.temporal.ChronoUnit;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
 public class Runner extends IsLeap{
     public static void main(String[] args) {
-        /*Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter year :");
-        String yearValue = scanner.nextLine();*/
         int fromYear, toYear;
         Pattern pattern = Pattern.compile("^[1-9][0-9]{1,8}$");
         do {
@@ -30,5 +24,4 @@ public class Runner extends IsLeap{
             }
         }while (true);
         }
-
     }
