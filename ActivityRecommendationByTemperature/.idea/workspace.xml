@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="439d2c44-3bea-4ca8-9ff7-515903a481eb" name="Changes" comment="-- project completed --">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Trying.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Trying.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/defines/Defines.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/defines/Defines.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helper/CityMapping.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helper/CityMapping.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helper/JsonProcessing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helper/JsonProcessing.java" afterDir="false" />
-    </list>
+    <list default="true" id="439d2c44-3bea-4ca8-9ff7-515903a481eb" name="Changes" comment="-- project completed --" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
