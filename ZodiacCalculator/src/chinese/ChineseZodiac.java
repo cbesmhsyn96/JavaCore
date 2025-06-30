@@ -1,18 +1,24 @@
 package chinese;
 
-import variables.PersonInfos;
 
-public class ChineseZodiac extends PersonInfos {
+public class ChineseZodiac{
 
-    public ChineseZodiac(String fullName,int birthYear) {
-        super(fullName,birthYear);
+    private static int birthYear;
+
+
+
+    public static int getBirthYear() {
+        return birthYear;
     }
 
-    private static int chineseZodiacCalc(){
-        return Math.floorMod(getBirthYear(),12);
+    public static void setBirthYear(int birthYear) {
+        ChineseZodiac.birthYear = birthYear;
     }
-    public static String getChineseZodiac() {
-        int zodiacValue = chineseZodiacCalc();
+
+    public static String getChineseZodiac(int birthYear) {
+        setBirthYear(birthYear);
+        int subResult = getBirthYear();
+        int zodiacValue = Math.floorMod(subResult, 12);
         return switch (zodiacValue) {
             case 0 -> "Monkey";
             case 1 -> "Rooster";
