@@ -2,4 +2,4 @@
 out/
 !**/src/main/**/out/
 !**/src/test/**/out/
-!ZodiacCalculator.iml
+!**/ZodiacCalculator.iml
