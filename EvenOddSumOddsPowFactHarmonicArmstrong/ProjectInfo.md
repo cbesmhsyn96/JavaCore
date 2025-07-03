@@ -1,7 +1,7 @@
-* 📁 even-number-finder
-* 📁 sum-of-odd-numbers
+* 📁 even-number-finder      done
+* 📁 sum-of-odd-numbers      done
 * 📁 power-calculator
-* 📁 factorial-calc
+* 📁 factorial-calc          done
 * 📁 harmonic-series
 * 📁 armstrong-number-check
 
