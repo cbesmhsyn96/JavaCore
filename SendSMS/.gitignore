@@ -1,15 +1,13 @@
-# IntelliJ
-.idea/
-*.iml
-src/helper/env/SecretEnvironmentDefines.java
-
-# Derleme çıktıları
-/out/
-build/
 target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
 
-# Loglar, temp dosyaları
-*.log
-*.tmp
-*.bak
-*.class
+### IntelliJ IDEA ###
+.idea/modules.xml
+.idea/jarRepositories.xml
+.idea/compiler.xml
+.idea/libraries/
+*.iws
+!*.iml
+*.ipr
+src/main/**/helper/env/SecretEnvironmentDefines.java
