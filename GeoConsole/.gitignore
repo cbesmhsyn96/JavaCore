@@ -1,0 +1,14 @@
+# IntelliJ
+.idea/
+*.iml
+
+# Derleme çıktıları
+/out/
+build/
+target/
+
+# Loglar, temp dosyaları
+*.log
+*.tmp
+*.bak
+*.class
