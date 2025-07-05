@@ -1,0 +1,15 @@
+# IntelliJ
+.idea/
+*.iml
+src/helper/env/SecretEnvironmentVars.class
+
+# Derleme çıktıları
+/out/
+build/
+target/
+
+# Loglar, temp dosyaları
+*.log
+*.tmp
+*.bak
+*.class
