@@ -1,12 +1,7 @@
 package gcdlcm;
 
-import com.sun.security.auth.LdapPrincipal;
 import helper.CommonMethods;
-import variables.Defines;
 
-import javax.print.DocFlavor;
-import javax.xml.stream.events.EntityReference;
-import java.io.LineNumberInputStream;
 import java.util.*;
 
 public class GCDLCMCalculation extends CommonMethods {
@@ -40,7 +35,7 @@ public class GCDLCMCalculation extends CommonMethods {
         return commonMultiples;
     }
 
-    public static int getLVMValueWithLongWay(int a,int b){
+    public static int getLCMValueWithLongWay(int a,int b){
         return Collections.min(commonMultiplesFromIntegerList(calcMultiplesFromInteger(a,multiplesListByCountFirst),calcMultiplesFromInteger(b,multiplesListByCountSecond)));
     }
 
@@ -49,8 +44,8 @@ public class GCDLCMCalculation extends CommonMethods {
     }
 
     public static int getGCDValue(int a, int b){
-        calcDivisorsFromInteger(a,divizorsNumberFirst);
-        calcDivisorsFromInteger(b,divizorsNumberSecond);
+        findDivisorsANumberWithRecursion(a,1,0,divizorsNumberFirst);
+        findDivisorsANumberWithRecursion(b,1,0,divizorsNumberSecond);
         commonDivisorsFromInteger(divizorsNumberFirst,divizorsNumberSecond);
         return Collections.max(commonDivisors);
     }
@@ -60,7 +55,7 @@ public class GCDLCMCalculation extends CommonMethods {
         System.out.println("---------------------------------------");
         System.out.println("GCD of "+a+" and "+b+ " = "+getGCDValue(a,b));
         System.out.println("LCM of "+a+" and "+b+ " = "+getLCMValue(a,b));
-        System.out.println("LCM with long way of "+a+" and "+b+" = "+getLVMValueWithLongWay(a,b));
+        System.out.println("LCM with long way of "+a+" and "+b+" = "+getLCMValueWithLongWay(a,b));
     }
 
 }

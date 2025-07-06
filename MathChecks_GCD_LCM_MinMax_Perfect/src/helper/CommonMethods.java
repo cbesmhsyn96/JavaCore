@@ -15,4 +15,27 @@ public class CommonMethods extends Defines {
         }
         return divsList;
     }
+
+    protected static void findDivisorsANumberWithRecursion(int number, int i, int obeb, List<Integer> divizorsNumberFirst){
+        if(i==1){
+            obeb = 1;
+        }
+        if(i<=number){
+            if(Math.floorMod(number,i)==0){
+                obeb = i;
+                divizorsNumberFirst.add(obeb);
+            }
+            findDivisorsANumberWithRecursion(number,i+1,obeb,divizorsNumberFirst);
+        }
+    }
+
+    protected static int sumDivisors(int i, List<Integer> divizors){
+        if(i == 0){
+            total = divizors.get(i);
+        }
+        if(i<divizors.size()){
+            return  total = divizors.get(i) + sumDivisors(i+1,divizors);
+        }
+        return 0;
+    }
 }

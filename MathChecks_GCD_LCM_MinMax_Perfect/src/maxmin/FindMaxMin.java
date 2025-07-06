@@ -1,9 +1,11 @@
 package maxmin;
 
+import helper.CommonMethods;
+
 import java.util.Collections;
 import java.util.List;
 
-public class FindMaxMin {
+public class FindMaxMin extends CommonMethods {
     private static int findMaxNumberFromListWithLongWay(List<Integer>numbers){
         int max = 0;
         for (int i = 0; i < numbers.size(); i++) {
@@ -40,6 +42,31 @@ public class FindMaxMin {
         return Collections.min(numbers);
     }
 
+    private static int findMinNumberWithRecursion(int i, List<Integer>numbers){
+        if(i==0){
+            min = numbers.get(0);
+        }
+        if(i<numbers.size()){
+            if(min>numbers.get(i)){
+                min = numbers.get(i);
+            }
+            return findMinNumberWithRecursion(i+1,numbers);
+        }
+        return min;
+    }
+
+    private static int findMaxNumberWithRecursion(int i, List<Integer>numbers){
+        if(i==0){
+            max = numbers.get(0);
+        }
+        if(i<numbers.size()){
+            if(max<numbers.get(i)){
+                max = numbers.get(i);
+            }
+            return findMaxNumberWithRecursion(i+1,numbers);
+        }
+        return max;
+    }
 
     public static void findMinAndMaxNumberFromList(List<Integer>numbers){
         System.out.println("---------------------------------------");
@@ -47,6 +74,8 @@ public class FindMaxMin {
         System.out.println("Max number with short way = "+findMaxNumberFromList(numbers));
         System.out.println("Min number with long way = "+findMinNumberFromListWithLongWay(numbers));
         System.out.println("Min number with short way = "+findMinNumberFromList(numbers));
+        System.out.println("Min number with resursion method = "+findMinNumberWithRecursion(0,numbers));
+        System.out.println("Max number with resursion method = "+findMaxNumberWithRecursion(0,numbers));
     }
 
 }

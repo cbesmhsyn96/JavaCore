@@ -2,6 +2,8 @@ package perfectnumber;
 
 import helper.CommonMethods;
 
+import javax.sql.rowset.serial.SerialStruct;
+import java.util.List;
 import java.util.regex.Pattern;
 
 
@@ -16,6 +18,18 @@ public class PerfectNumberCheck extends CommonMethods {
         }
     }
 
+
+    public static void isPerfectNumberWithRecustion(int number){
+        divizorsNumberFirst.clear();
+        findDivisorsANumberWithRecursion(number, 1, 0, divizorsNumberFirst);
+        int totalFirst = sumDivisors(0,divizorsNumberFirst);
+        int controlledNumber = totalFirst-number;
+        if(controlledNumber == number){
+            System.out.println(number+" is perfect number.");
+        }else{
+            System.out.println(number+" is not perfect number.");
+        }
+    }
 
     public static void getPerfectNumberStatus(){
         System.out.print("Please input a number :");
