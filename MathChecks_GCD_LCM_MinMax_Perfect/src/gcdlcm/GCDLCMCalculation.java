@@ -1,6 +1,7 @@
 package gcdlcm;
 
 import com.sun.security.auth.LdapPrincipal;
+import helper.CommonMethods;
 import variables.Defines;
 
 import javax.print.DocFlavor;
@@ -8,15 +9,7 @@ import javax.xml.stream.events.EntityReference;
 import java.io.LineNumberInputStream;
 import java.util.*;
 
-public class GCDLCMCalculation extends Defines {
-    private static List<Integer> calcDivisorsFromInteger(int number, List<Integer> divsList){
-        for (int i = 1; i < number; i++) {
-            if(Math.floorMod(number,i)==0){
-                divsList.add(i);
-            }
-        }
-        return divsList;
-    }
+public class GCDLCMCalculation extends CommonMethods {
 
     private static Set<Integer> commonDivisorsFromInteger(List<Integer> divsNum1, List<Integer> divsNum2){
         for (int i = 0; i < divsNum1.size(); i++) {
@@ -64,6 +57,7 @@ public class GCDLCMCalculation extends Defines {
 
 
     public static void getGCMAndLCM(int a, int b){
+        System.out.println("---------------------------------------");
         System.out.println("GCD of "+a+" and "+b+ " = "+getGCDValue(a,b));
         System.out.println("LCM of "+a+" and "+b+ " = "+getLCMValue(a,b));
         System.out.println("LCM with long way of "+a+" and "+b+" = "+getLVMValueWithLongWay(a,b));

@@ -1,0 +1,1 @@
+This project covers GCD and LCM calculations, finding the minimum and maximum numbers in a list, and checking for perfect numbers.
