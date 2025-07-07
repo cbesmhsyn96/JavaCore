@@ -1,0 +1,12 @@
+# IntelliJ IDEA
+.idea/
+*.iml
+
+# Build artifacts
+/out/
+*.class
+
+# Logs and temp
+*.log
+*.tmp
+*.bak
