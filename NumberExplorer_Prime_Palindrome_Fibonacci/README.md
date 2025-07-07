@@ -48,7 +48,3 @@ NumberExplorer_Prime_Palindrome_Fibonacci/
 - Easy to extend with additional number theory features (e.g., perfect numbers).
 
 ---
-
-## License
-
-This project is licensed under the MIT License.
