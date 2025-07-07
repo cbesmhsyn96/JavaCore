@@ -1,0 +1,12 @@
+# IntelliJ IDEA
+.idea/
+*.iml
+
+# Derleme çıktıları
+/out/
+*.class
+
+# Geçici dosyalar
+*.log
+*.tmp
+*.bak
