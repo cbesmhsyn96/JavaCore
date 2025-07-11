@@ -1,0 +1,14 @@
+# IntelliJ IDEA
+.idea/
+
+# Build artifacts
+/out/
+*.class
+
+# Logs and temp
+*.log
+*.tmp
+*.bak
+
+### Mac OS ###
+.DS_Store
