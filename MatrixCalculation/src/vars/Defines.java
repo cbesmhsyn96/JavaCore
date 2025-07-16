@@ -9,4 +9,6 @@ public class Defines {
     protected static int matrixT[][];
     protected static int randNumber;
     protected static boolean status;
+    protected static int scalarNumberInt;
+    protected static int temp;
 }
