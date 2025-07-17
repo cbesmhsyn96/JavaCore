@@ -93,14 +93,18 @@ public class Student extends PatternValidation {
             for (String key : studentNames.keySet()){
                 System.out.println(key);
             }
-            System.out.print("Lütfen bilgileri listelenecek öğrencinin idsini girin :");
-            idVal = scanner.nextLine();
-            if(studentNames.containsKey(idVal)){
-                System.out.println(idVal + " idli öğrencinin bilgileri");
-                System.out.println("id = "+Integer.parseInt(idVal));
-                System.out.println("Tam ad = "+studentNames.get(idVal));
-                System.out.println("Email = "+studentEmails.get(idVal));
-            }
+            do {
+                System.out.print("Lütfen bilgileri listelenecek öğrencinin idsini girin :");
+                idVal = scanner.nextLine();
+                if(studentNames.containsKey(idVal)){
+                    System.out.println(idVal + " idli öğrencinin bilgileri");
+                    System.out.println("id = "+Integer.parseInt(idVal));
+                    System.out.println("Tam ad = "+studentNames.get(idVal));
+                    System.out.println("Email = "+studentEmails.get(idVal));
+                }else{
+                    System.out.println("Lütfen listelenen idlerden birini yazınız...");
+                }
+            }while (!studentNames.containsKey(idVal));
         }else{
             System.out.println("Öğrenci bilgi listesi boş. Lüften öğrenci bilgisi ekleyin.");
         }
@@ -108,23 +112,41 @@ public class Student extends PatternValidation {
 
     protected static void updateStudentInfosById(){
         String idVal;
+        String updateValue;
         if(studentNames.size()!=0){
             System.out.println("Bilgileri güncellenebilecek öğrenci idleri");
             for (String key : studentNames.keySet()){
                 System.out.println(key);
             }
-            System.out.print("Lütfen bilgileri güncellenecek öğrencinin idsini girin :");
-            idVal = scanner.nextLine();
-            if(studentNames.containsKey(idVal)){
-                System.out.println(idVal + " idli öğrencinin bilgileri");
-                System.out.println("id = "+Integer.parseInt(idVal));
-                System.out.println("Tam ad = "+studentNames.get(idVal));
-                System.out.println("Email = "+studentEmails.get(idVal));
+            do {
+                System.out.print("Lütfen bilgileri güncellenecek öğrencinin idsini girin :");
+                idVal = scanner.nextLine();
+                if(studentNames.containsKey(idVal)){
+                    System.out.println(idVal + " idli öğrencinin bilgileri");
+                    System.out.println("id = "+Integer.parseInt(idVal));
+                    System.out.println("Tam ad = "+studentNames.get(idVal));
+                    System.out.println("Email = "+studentEmails.get(idVal));
+                    do {
+                        System.out.println("Güncelleme yapacağınız bilgiyi giriniz [Tam ad|Email]:");
+                        updateValue = scanner.nextLine();
+                        if(!updateValuePattern.matcher(updateValue).matches()){
+                            System.out.println("Lütfen geçerli bir değer giriniz...");
+                        }
+                    }while (!updateValuePattern.matcher(updateValue).matches());
+
+                    switch (updateValue){
+                        case "Tam ad":updateFullName(idVal); break;
+                        case "Email":updateEmail(idVal);break;
+                    }
                 /*
                 Burada switch case ile alınan değere göre Tam ad veya email değiştirilir.
                 id değiştirilmemeli
                  */
-            }
+                }else{
+                    System.out.println("Lütfen listelenen idlerden birini yazınız...");
+                }
+            }while (!studentNames.containsKey(idVal));
+
         }else{
             System.out.println("Öğrenci bilgi listesi boş. Lüften öğrenci bilgisi ekleyin.");
         }
@@ -140,6 +162,39 @@ public class Student extends PatternValidation {
 
     @Override
     public String toString() {
+        //tüm idlerin bilgilerini listelerken kullanılacak
         return "";
     }
+
+    private static void updateFullName(String idVal){
+        String newFullNameVal;
+        do {
+            System.out.print(idVal+" idli öğrencinin güncel tam adını giriniz");
+            newFullNameVal = scanner.nextLine();
+            if (!fullNamePattern.matcher(newFullNameVal).matches()) {
+                System.out.println("Lütfen harflerden oluşan, baş harfleri büyük en az 2 kelimeden oluşan bir değer giriniz...");
+            }
+            if(studentNames.get(idVal).equals(newFullNameVal)){
+                System.out.println("Güncel tam ad var olan tam ad ile aynı olamaz...");
+            }
+        }while (!fullNamePattern.matcher(newFullNameVal).matches()&&studentNames.get(idVal).equals(newFullNameVal));
+        studentNames.replace(idVal,newFullNameVal);
+    }
+
+    private static void updateEmail(String idVal){
+        String newEmailVal;
+        do {
+            System.out.print(idVal+" idli öğrencinin güncel emailini giriniz");
+            newEmailVal = scanner.nextLine();
+            if (!emailPattern.matcher(newEmailVal).matches()) {
+                System.out.println("Lütfen harflerden oluşan, baş harfleri büyük en az 2 kelimeden oluşan bir değer giriniz...");
+            }
+            if(studentEmails.get(idVal).equals(newEmailVal)){
+                System.out.println("Güncel tam ad var olan tam ad ile aynı olamaz...");
+            }
+        }while (!emailPattern.matcher(newEmailVal).matches()&&studentEmails.get(idVal).equals(newEmailVal));
+        studentEmails.replace(idVal,newEmailVal);
+    }
+
+
 }
